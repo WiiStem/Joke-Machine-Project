@@ -19,9 +19,9 @@ def joke():
         headers={"Accept":"application/json"}
         response = requests.get(api_url,headers=headers)
         if response.status_code == 200:
-            data = response.json().get("joke")
+            joke = response.json().get("joke")
     
-    return render_template("joke.html", mood=mood, dad_joke=data, )
+    return render_template("joke.html", mood=mood, joke=joke, )
 
 @app.route("/search", methods=["GET", "POST"])
 def search_joke():
