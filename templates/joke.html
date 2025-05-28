@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joke Generator</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/joke.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/joke.css') }}">
 </head>
 <body>
-    <form action="/joke" method="POST"></form>
-    <label for="dad_joke">What mood are you in right now</label>
+    <form action="/joke" method="POST">
+        <label for="joke">What mood are you in right now</label>
         <select name="joke" id="joke" required>
-            {% for mood in mood %}
-            <option value="{{mood}}">{{mood}}</option>
+            {% for m in mood %}
+                <option value="{{ m }}">{{ m }}</option>
             {% endfor %}
         </select>
         <button type="submit">Give me a joke!</button>
-    
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if dad_joke %}
+        <h3>Laughter is the best medicine!</h3>
+        <p>{{ dad_joke }}</p>
+    {% endif %}
+
     <p><a href="/">Back to home</a></p>
 </body>
 </html>

@@ -7,7 +7,7 @@ app=Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/joke")
+@app.route("/joke", methods=["GET", "POST"])
 def joke():
     joke = None
     api_url = "https://icanhazdadjoke.com/"
@@ -19,12 +19,9 @@ def joke():
         headers={"Accept":"application/json"}
         response = requests.get(api_url,headers=headers)
         if response.status_code == 200:
-            data = response.json()
-            dad_jokes = list(data["message"].keys())
-            dad_jokes.sort()
-            dad_joke = request.form.get("joke")
+            data = response.json().get("joke")
     
-    return render_template("joke.html", mood=mood, dad_joke=dad_joke, dad_jokes=dad_jokes)
+    return render_template("joke.html", mood=mood, dad_joke=data, )
 
 @app.route("/search", methods=["GET", "POST"])
 def search_joke():
