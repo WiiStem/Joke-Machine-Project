@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joke Search</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/search.css')}}">
+    <title>Search Dad Jokes</title>
 </head>
 <body>
-    <form action="/search" method="POST"></form>
-    <label for="search">Enter a term: <input search="search" type="text"></label><br>
-    <button type="submit">Submit!</button>
+    <h1>Search for Dad Jokes!</h1>
+    
+    <form method="POST">
+        <label for="search_term">Enter a term to search for jokes:</label>
+        <input type="text" id="search_term" name="search_term" value="{{ search_term }}">
+        <button type="submit">Search</button>
+    </form>
 
-    {% if error %}
-    <p style="color: red">{{error}}</p>
+    {% if jokes %}
+        <h2>Jokes containing "{{ search_term }}":</h2>
+        <ul>
+            {% for joke in jokes %}
+                <li>{{ joke.joke }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {% if search_term %}
+            <p>No jokes found for "{{ search_term }}"</p>
+        {% else %}
+            <p>Enter a search term to find some jokes!</p>
+        {% endif %}
     {% endif %}
 
     <p><a href="/">Back to home</a></p>

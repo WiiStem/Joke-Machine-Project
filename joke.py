@@ -23,21 +23,24 @@ def joke():
     
     return render_template("joke.html", mood=mood, joke=joke, )
 
-@app.route("/search", methods=["GET", "POST"])
-def search_joke():
-        joke=None
-        term=None
-        error=None
-        jokes=""
-        if request.method == "POST":
-                term = request.form.get("search")
-                api_url = f"https://icanhazdadjoke.com/search?term={term}"
-                headers = {"Accept": "application/json"}
-                response = requests.get(api_url, headers=headers)
-                if response.status_code == 200:
-                        jokes = response.json().get("results")
-                else:
-                     error="Couldnt get your joke, either try again with a different term or try again later "
-        return render_template("search.html",jokes=jokes,error=error,joke=joke)
-if __name__ == "__main__":
+
+API_URL = "https://icanhazdadjoke.com/search"
+
+
+headers = {
+    'Accept': 'application/json'
+}
+@app.route('/search', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        search_term = request.form['search_term']
+        response = requests.get(API_URL, headers=headers, params={'term': search_term})
+        data = response.json()
+        jokes = data.get('results', [])
+        
+        return render_template('search.html', jokes=jokes, search_term=search_term)
+    
+    return render_template('search.html', jokes=[], search_term='')
+
+if __name__ == '__main__':
     app.run(debug=True)
