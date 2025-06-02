@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Dad Jokes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
-    <h1>Search for Dad Jokes!</h1>
+<body class="bg">
+    <h1  class="search">Search for Dad Jokes!</h1>
     
     <form method="POST">
-        <label for="search_term">Enter a term to search for jokes:</label>
-        <input type="text" id="search_term" name="search_term" value="{{ search_term }}">
-        <button type="submit">Search</button>
+        <label for="search_term" class="search" >Enter a term to search for jokes:</label>
+        <input type="text" id="search_term" class="search" name="search_term" value="{{ search_term }}">
+        <button type="submit" class="search">Search</button>
     </form>
 
     {% if jokes %}
-        <h2>Jokes containing "{{ search_term }}":</h2>
-        <ul>
+        <h2  class="search">Jokes containing "{{ search_term }}":</h2>
+        <ul class="search">
             {% for joke in jokes %}
                 <li>{{ joke.joke }}</li>
             {% endfor %}
@@ -30,6 +30,6 @@
         {% endif %}
     {% endif %}
 
-    <p><a href="/">Back to home</a></p>
+    <p><a href="/" class="search">Back to home</a></p>
 </body>
 </html>
