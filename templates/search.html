@@ -7,29 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg">
-    <h1  class="search">Search for Dad Jokes!</h1>
+    <h1  class="text_color">Search for Dad Jokes!</h1>
     
     <form method="POST">
-        <label for="search_term" class="search" >Enter a term to search for jokes:</label>
-        <input type="text" id="search_term" class="search" name="search_term" value="{{ search_term }}">
-        <button type="submit" class="search">Search</button>
+        <label for="search_term" class="text_color" >Enter a term to search for jokes:</label>
+        <input type="text" id="search_term" class="text_color" name="search_term" value="{{ search_term }}">
+        <button type="submit" class="text_color">Search</button>
     </form>
 
     {% if jokes %}
-        <h2  class="search">Jokes containing "{{ search_term }}":</h2>
-        <ul class="search">
+        <h2  class="text_color">Jokes containing "{{ search_term }}":</h2>
+        <ul class="text_color">
             {% for joke in jokes %}
                 <li>{{ joke.joke }}</li>
             {% endfor %}
         </ul>
     {% else %}
         {% if search_term %}
-            <p>No jokes found for "{{ search_term }}, please try another term"</p>
+            <p class="text_color">No jokes found for "{{ search_term }}, please try another term"</p>
         {% else %}
-            <p>Enter a search term to find some jokes!</p>
+            <p class="text_color">Enter a search term to find some jokes!</p>
         {% endif %}
     {% endif %}
 
-    <p><a href="/" class="search">Back to home</a></p>
+    <p><a href="/" class="text_color">Back to home</a></p>
 </body>
 </html>
