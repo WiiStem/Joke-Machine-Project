@@ -14,5 +14,48 @@
             <li class="nav_item"><a href="/search" class="text_color">Search for a joke</a></li>
         </ul>
     </nav>
+    <p class="text_color">This site was developed to help you sharpen your joke catalog.</p>
+    <div id="cards">
+        <div class="card-wrapper">
+            <div class="card">
+                <header class="card_header">Joke 1</header>
+                <div id="card_img">
+                    <img src="{{ url_for('static', filename='images/cow.jpg') }}"
+                    alt="cow">
+                </div>
+                <div class="card_body">
+                    Did you hear about the cow who jumped over the barbed wire fence? It was udder destruction.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cards">
+        <div class="card-wrapper">
+            <div class="card">
+                <header class="card_header">Joke 2</header>
+                <div id="card_img">
+                    <img src="{{ url_for('static', filename='images/window house.jpg') }}"
+                    alt="house">
+                </div>
+                <div class="card_body">
+                    Why did the house go to the doctor? It was having window panes.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cards">
+        <div class="card-wrapper">
+            <div class="card">
+                <header class="card_header">Joke 3</header>
+                <div id="card_img">
+                    <img src="{{ url_for('static', filename='images/alligator.jpg') }}"
+                    alt="gator">
+                </div>
+                <div class="card_body">
+                    What do you call an alligator in a vest? An in-vest-igator!
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

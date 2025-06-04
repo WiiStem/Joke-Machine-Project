@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg">
+    <nav class="nav">
+        <ul class="list">
+            <li class="nav_item"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text_color">Rick has a good joke for you</a></li>
+            <li class="nav_item"><a href="/joke" class="text_color">Here's a joke</a></li>
+            <li class="nav_item"><a href="/search" class="text_color">Search for a joke</a></li>
+            <li class="nav_item"><a href="/" class="text_color">Back to home</a></li>
+        </ul>
+    </nav>
     <h1  class="text_color">Search for Dad Jokes!</h1>
-    
     <form method="POST">
         <label for="search_term" class="text_color" >Enter a term to search for jokes:</label>
         <input type="text" id="search_term" class="text_color" name="search_term" value="{{ search_term }}">
@@ -19,7 +26,7 @@
         <h2  class="text_color">Jokes containing "{{ search_term }}":</h2>
         <ul class="text_color">
             {% for joke in jokes %}
-                <li>{{ joke.joke }}</li>
+                <li class="joke_list">{{ joke.joke }}</li>
             {% endfor %}
         </ul>
     {% else %}
@@ -29,7 +36,5 @@
             <p class="text_color">Enter a search term to find some jokes!</p>
         {% endif %}
     {% endif %}
-
-    <p><a href="/" class="text_color">Back to home</a></p>
 </body>
 </html>

@@ -5,3 +5,81 @@
 .text_color{
     color:darksalmon;
 }
+
+#navbar{
+    background-color: var(--color-secondary);
+    color: var(--color-info);
+    text-align: center;
+    
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.nav_item {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+.nav_item :hover {
+    color: var(--color-info);
+}
+
+#cards {
+    padding: 0.5rem;
+}
+
+.card {
+    border-radius: 7px;
+    box-shadow: 0 0 20px 10px var(--color-info);
+    overflow: auto;
+    background-color: var(--color-primary);
+}
+
+.card_header,.card_body {
+    padding: 1rem 1.5rem;
+}
+
+.card_header {
+    text-align: center;
+}
+.card_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.card_body {
+    text-align: center;
+}
+
+.card-wrapper > .card {
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.card-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#card_img {
+    text-align: center;
+    max-width: 100%;
+    height:auto;
+}
+
+.joke_list {
+    text-align: center;
+}
